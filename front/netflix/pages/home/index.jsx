@@ -39,7 +39,11 @@ export default function Home() {
     const capturar = async ()=>{
         try{
             const response = await axios.get(
-                'http://127.0.0.1:8000/api/filme/' + id
+                'http://127.0.0.1:8000/api/filme/' + id, {
+                    headers:{
+                        Authorization: `Bearer ${token}`
+                    }
+                }
             )
             console.log(response.data)
             setFilmeG(response.data.titulo)
@@ -64,6 +68,11 @@ export default function Home() {
                     ano: ano,
                     classif: classif,
                     idioma: idioma
+                },
+                {
+                    headers:{
+                        Authorization: `Bearer ${token}`
+                    }
                 }
             )
             console.log('Dados inseridos com sucesso...')
@@ -88,6 +97,11 @@ export default function Home() {
                     ano: anoG,
                     classif: classifG,
                     idioma: idiomaG
+                },
+                {
+                    headers:{
+                        Authorization: `Bearer ${token}`
+                    }
                 }
             )
             console.log('Alterado com sucesso...')
@@ -99,7 +113,11 @@ export default function Home() {
     const apagar = async () => {
         try {
             const response = await axios.delete(
-                'http://127.0.0.1:8000/api/filme/' + id
+                'http://127.0.0.1:8000/api/filme/' + id, {
+                    headers:{
+                        Authorization: `Bearer ${token}`
+                    }
+                }
             )
             console.log('Apagado com sucesso...')
             setFilmeG('')
