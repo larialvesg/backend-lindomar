@@ -15,5 +15,7 @@ class Filmes(models.Model):
     ano = models.CharField(max_length=255)
     idioma = models.CharField(max_length=255)
     classif = models.ForeignKey(Classificacao, on_delete=models.CASCADE)
-    # urlImage = models.CharField(max_length=255)
-    # imagem = models.ImageField(upload_to="capa/", blank=True, null=True)
+    
+
+class Imagem(models.Model):
+    imagem = models.ImageField(upload_to="capas/", blank=True, null=True)

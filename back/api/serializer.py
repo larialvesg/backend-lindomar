@@ -1,20 +1,21 @@
 from rest_framework import serializers
-from .models import Filmes, Genero, Classificacao
-
-
+from .models import Filmes, Genero, Imagem
+ 
+class FilmesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Filmes
+        fields = ['id', 'titulo', 'genre', 'ano', 'idioma', 'classif']
+ 
+ 
 class GeneroSerializer(serializers.ModelSerializer):
     class Meta:
         model = Genero
-        fields = ["id", "genre"]
-
-class ClassificacaoSerializer(serializers.ModelSerializer):
+        fields = ['id', 'genre']
+ 
+ 
+class ImagemSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Classificacao
-        fields = ["id", "classificacao"]
-
-class FilmesSerializer(serializers.ModelSerializer):
-    # genre = GeneroSerializer()
-    class Meta:
-        model = Filmes
-        fields = ['id', 'titulo', 'genre', 'ano', 'idioma', 'classif', ]
-        # "urlImage", "imagem"
+        model = Imagem
+        fields = ['id', 'imagem']
+       
+ 
